@@ -9,10 +9,10 @@ ENV PATH=/sbin:/usr/sbin:/bin:/usr/bin
 
 # Setup base
 # hadolint ignore=DL3003
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends \
-	openrc \
-	curl
+RUN apt-get update 
+    #&& apt-get install -y --no-install-recommends \
+	#openrc \
+	#curl
     #\
     #&& curl -L -o /tmp/netbird_0.9.7.tar.gz https://github.com/netbirdio/netbird/releases/download/v0.9.7/netbird_0.9.7_linux_amd64.tar.gz  \
     #&& cd /tmp/ \
