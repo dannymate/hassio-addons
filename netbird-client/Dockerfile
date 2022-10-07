@@ -3,7 +3,7 @@ ARG BUILD_FROM=netbirdio/netbird
 FROM ${BUILD_FROM}
 
 # Set shell
-SHELL ["/bin/sh"]
+SHELL ["/bin/sh", "-c"]
 
 ENV PATH=/sbin:/usr/sbin:/bin:/usr/bin:/go/bin
 
