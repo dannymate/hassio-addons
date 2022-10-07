@@ -8,11 +8,6 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 ENV PATH=/sbin:/usr/sbin:/bin:/usr/bin
 
 # Setup base
-RUN apk add sudo
-
-RUN useradd -m docker && echo "docker:docker" | chpasswd && adduser docker sudo
-USER docker
-
 # hadolint ignore=DL3003
 RUN \
     apk add --no-cache --virtual .build-dependencies \
