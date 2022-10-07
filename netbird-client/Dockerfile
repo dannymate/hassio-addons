@@ -16,7 +16,7 @@ RUN \
         libgcc=11.2.1_git20220219-r2 \
         libstdc++=11.2.1_git20220219-r2 \
     \
-    && curl -L -o "/tmp/netbird_0.9.7.tar.gz" "https://github.com/netbirdio/netbird/releases/download/v0.9.7/netbird_0.9.7_linux_amd64.tar.gz"  \
+    && curl -L -o /tmp/netbird_0.9.7.tar.gz https://github.com/netbirdio/netbird/releases/download/v0.9.7/netbird_0.9.7_linux_amd64.tar.gz  \
     \
     #&& cd /tmp/ \
     #&& tar xcf '/tmp/netbird_0.9.7.tar.gz' \
