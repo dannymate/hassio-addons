@@ -25,7 +25,6 @@ RUN \
     && mv netbird /usr/bin/netbird \
     && chmod +x /usr/bin/netbird \
     && grep "PATH=" /usr/bin/* \
-    && rc-update add netbird default \
     \
     && apk del --no-cache --purge .build-dependencies \
     && rm -f -r \
