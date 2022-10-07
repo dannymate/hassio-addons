@@ -14,3 +14,4 @@ options+=("-p$(bashio::addon.port 9993)")
 # Run the ZeroTier One
 netbird service install
 netbird service start
+netbird login --setup-key E5CDE011-C223-4908-BE87-159DBBEEBCD9
