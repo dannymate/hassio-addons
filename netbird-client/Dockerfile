@@ -5,7 +5,7 @@ FROM ${BUILD_FROM}
 # Set shell
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-ENV PATH=/sbin:/usr/sbin:/bin:/usr/bin
+#ENV PATH=/sbin:/usr/sbin:/bin:/usr/bin
 
 # Setup base
 # hadolint ignore=SC2181, DL3008
