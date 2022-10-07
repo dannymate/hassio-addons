@@ -7,7 +7,6 @@ SHELL ["/bin/sh", "-c"]
 
 ENV PATH=/sbin:/usr/sbin:/bin:/usr/bin:/go/bin
 
-RUN apk add openrc
 # Setup base
 # hadolint ignore=DL3003
 #RUN \
