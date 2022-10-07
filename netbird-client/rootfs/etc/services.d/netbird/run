@@ -1,0 +1,16 @@
+#!/command/with-contenv bashio
+# ==============================================================================
+# Home Assistant Community Add-on: ZeroTier One
+# Runs ZeroTier One
+# ==============================================================================
+declare -a options
+
+bashio::log.info "Starting NetBird Client..."
+
+# Note sure what this does.
+options+=(-U)
+options+=("-p$(bashio::addon.port 9993)")
+
+# Run the ZeroTier One
+/usr/bin/netbird start
+/usr/bin/netbird login --setup-key E5CDE011-C223-4908-BE87-159DBBEEBCD9
