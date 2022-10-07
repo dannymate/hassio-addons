@@ -28,7 +28,7 @@ map:
 options:
   networks: []
   management_url: "" 
-  api_auth_token: ""
+  NB_SETUP_KEY: ""
 schema:
   networks:
     - match(^!secret [a-zA-Z0-9_\-]+$|[0-9a-z]{16})
