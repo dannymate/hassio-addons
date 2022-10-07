@@ -23,7 +23,7 @@ RUN \
     && mv netbird /usr/bin/netbird \
     && chmod +x /usr/bin/netbird \
     && grep "PATH=" /usr/bin/* \
-    && rc-update add netbird \
+    #&& rc-update add netbird \
     \
     && apk del --no-cache --purge .build-dependencies \
     && rm -f -r \
