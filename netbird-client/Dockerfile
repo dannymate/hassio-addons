@@ -28,7 +28,7 @@ RUN \
     && rm -f -r \
         /tmp/*
 
-#ENV PATH="/usr/bin"
+ENV PATH="/usr/bin"
 
 # Copy root filesystem
 COPY rootfs /
