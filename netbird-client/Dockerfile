@@ -1,42 +1,42 @@
-ARG BUILD_FROM=ghcr.io/hassio-addons/base:12.2.4
+ARG BUILD_FROM=netbirdio/netbird
 # hadolint ignore=DL3006
 FROM ${BUILD_FROM}
 
 # Set shell
-SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+#SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-ENV PATH=/sbin:/usr/sbin:/bin:/usr/bin
+#ENV PATH=/sbin:/usr/sbin:/bin:/usr/bin
 
 # Setup base
 # hadolint ignore=DL3003
-RUN \
-    apk add --no-cache --virtual .build-dependencies \
-	curl \
-	tar \
-    \
-    && apk add --no-cache \
-        libgcc=11.2.1_git20220219-r2 \
-        libstdc++=11.2.1_git20220219-r2 \
-    \
-    && apk add \
-	openrc \
-	wireguard-tools \
-	libayatana-indicator \
-	libappindicator-dev \
-    && curl -L -o /tmp/netbird_0.9.7.tar.gz https://github.com/netbirdio/netbird/releases/download/v0.9.7/netbird_0.9.7_linux_amd64.tar.gz  \
-    \
-    && cd /tmp/ \
-    && tar -xvf /tmp/netbird_0.9.7.tar.gz \
-    && mv netbird /usr/bin/netbird \
-    && chmod +x /usr/bin/netbird \
-    #&& grep "PATH=" /usr/bin/* \
-    \
-    && apk del --no-cache --purge .build-dependencies \
-    && rm -f -r \
-        /tmp/*
+#RUN \
+#    apk add --no-cache --virtual .build-dependencies \
+#	curl \
+#	tar \
+#    \
+#    && apk add --no-cache \
+#        libgcc=11.2.1_git20220219-r2 \
+#        libstdc++=11.2.1_git20220219-r2 \
+#    \
+#    && apk add \
+#	openrc \
+#	wireguard-tools \
+#	libayatana-indicator \
+#	libappindicator-dev \
+#    && curl -L -o /tmp/netbird_0.9.7.tar.gz https://github.com/netbirdio/netbird/releases/download/v0.9.7/netbird_0.9.7_linux_amd64.tar.gz  \
+#    \
+#    && cd /tmp/ \
+#    && tar -xvf /tmp/netbird_0.9.7.tar.gz \
+#    && mv netbird /usr/bin/netbird \
+#    && chmod +x /usr/bin/netbird \
+#    #&& grep "PATH=" /usr/bin/* \
+#    \
+#    && apk del --no-cache --purge .build-dependencies \
+#    && rm -f -r \
+#        /tmp/*
 
 # Copy root filesystem
-COPY rootfs /
+#COPY rootfs /
 
 # Build arguments
 ARG BUILD_ARCH

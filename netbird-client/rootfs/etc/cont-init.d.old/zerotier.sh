@@ -3,8 +3,8 @@
 # Home Assistant Community Add-on: ZeroTier One
 # Generates an identiy in case it does not exists yet
 # ==============================================================================
-readonly private='/ssl/netbird_client/identity.secret'
-readonly public='/ssl/zerotier/identity.public'
+readonly private='/ssl/netbird/identity.secret'
+readonly public='/ssl/netbird/identity.public'
 declare network
 declare node
 declare token
@@ -33,8 +33,8 @@ then
     zerotier-idtool generate "${private}" "${public}"
 fi
 
-ln -s "${private}" /var/lib/zerotier-one/identity.secret
-ln -s "${public}" /var/lib/zerotier-one/identity.public
+ln -s "${private}" /var/lib/netbird-client/identity.secret
+ln -s "${public}" /var/lib/netbird-client/identity.public
 
 node=$(cut -d ':' -f1 < "${private}")
 bashio::log.info "ZeroTier node address: ${node}"
@@ -46,7 +46,7 @@ if bashio::config.has_value 'api_auth_token'; then
 fi
 
 # Ensure network folder exists
-mkdir -p "/var/lib/zerotier-one/networks.d" \
+mkdir -p "/var/lib/netbird/networks.d" \
     || bashio::exit.nok "Could not create networks folder"
 
 # Install user configured/requested packages
@@ -58,7 +58,7 @@ if bashio::config.has_value 'networks'; then
         touch "/data/network.${network}.conf"
         ln -s \
             "/data/network.${network}.conf" \
-            "/var/lib/zerotier-one/networks.d/${network}.conf" \
+            "/var/lib/netbirdnetworks.d/${network}.conf" \
                 || bashio::exit.nok "Could not create network file"
     done <<< "$(bashio::config 'networks')"
 
