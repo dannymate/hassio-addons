@@ -15,7 +15,7 @@ start_netbird()
 	bashio::log.info "Installing NetBird Service..."
 	rc-service /usr/bin/netbird service install
 	bashio::log.info "Starting NetBird Service..."
-	rc-service /usr/bin/netbird service start
+	#rc-service /usr/bin/netbird service start
 	bashio::log.info "Starting NetBird Client..."
 	/usr/bin/netbird up --setup-key E5CDE011-C223-4908-BE87-159DBBEEBCD9
 }
