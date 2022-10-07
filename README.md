@@ -1,4 +1,4 @@
-# Home Assistant Community Add-on: ZeroTier One
+# Home Assistant Community Add-on: NetBird Client
 
 [![GitHub Release][releases-shield]][releases]
 ![Project Stage][project-stage-shield]
