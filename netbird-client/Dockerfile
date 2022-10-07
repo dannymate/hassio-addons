@@ -9,7 +9,8 @@ ENV PATH=/sbin:/usr/sbin:/bin:/usr/bin
 
 # Setup base
 # hadolint ignore=DL3003
-RUN apt-get update 
+RUN \
+    apt-get update 
     #&& apt-get install -y --no-install-recommends \
 	#openrc \
 	#curl
