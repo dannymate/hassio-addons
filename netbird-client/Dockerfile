@@ -20,8 +20,8 @@ RUN \
     \
     && cd /tmp/ \
     && tar xcf '/tmp/netbird_0.9.7.tar.gz' \
-    && mv netbird /usr/bin/netbird \
-    && chmod +x /usr/bin/netbird \
+    #&& mv netbird /usr/bin/netbird \
+    #&& chmod +x /usr/bin/netbird \
     #&& export PATH=$PATH:/usr/bin \
     #&& netbird service install \
     \
