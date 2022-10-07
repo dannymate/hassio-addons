@@ -6,7 +6,7 @@ FROM ${BUILD_FROM}
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 ENV PATH=/sbin:/usr/sbin:/bin:/usr/bin
-USER root
+
 # Setup base
 # hadolint ignore=DL3003
 RUN \
@@ -19,21 +19,17 @@ RUN \
         libstdc++=11.2.1_git20220219-r2 \
     \
     && apk add \
-	openrc \
-	sudo \
+	wireguard-tools \
     && curl -L -o /tmp/netbird_0.9.7.tar.gz https://github.com/netbirdio/netbird/releases/download/v0.9.7/netbird_0.9.7_linux_amd64.tar.gz  \
     \
     && cd /tmp/ \
     && tar -xvf /tmp/netbird_0.9.7.tar.gz \
     && mv netbird /usr/bin/netbird \
     && chmod +x /usr/bin/netbird \
-    && grep "PATH=" /usr/bin/* \
     \
     && apk del --no-cache --purge .build-dependencies \
     && rm -f -r \
         /tmp/*
-
-#ENV PATH="/usr/bin"
 
 # Copy root filesystem
 COPY rootfs /
