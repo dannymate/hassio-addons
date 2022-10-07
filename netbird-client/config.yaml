@@ -29,4 +29,6 @@ options:
   NB_MANAGEMENT_URL: "" 
   NB_SETUP_KEY: ""
 schema:
+  NB_MANAGEMENT_URL: str
+  NB_SETUP_KEY: str
   log_level: list(trace|debug|info|notice|warning|error|fatal)?

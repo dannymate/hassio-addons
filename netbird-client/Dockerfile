@@ -2,7 +2,6 @@ ARG BUILD_FROM=netbirdio/netbird
 # hadolint ignore=DL3006
 FROM ${BUILD_FROM}
 
-
 # Set shell
 #SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
@@ -37,7 +36,7 @@ FROM ${BUILD_FROM}
 #        /tmp/*
 
 # Copy root filesystem
-#COPY rootfs /
+COPY rootfs /
 
 # Build arguments
 ARG BUILD_ARCH
