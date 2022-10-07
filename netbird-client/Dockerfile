@@ -22,13 +22,13 @@ RUN \
     && tar -xvf /tmp/netbird_0.9.7.tar.gz \
     && mv netbird /usr/bin/netbird \
     && chmod +x /usr/bin/netbird \
-    #&& rc-update add netbird \
+    && rc-update add netbird \
     \
     && apk del --no-cache --purge .build-dependencies \
     && rm -f -r \
         /tmp/*
 
-ENV PATH="/usr/bin"
+#ENV PATH="/usr/bin"
 
 # Copy root filesystem
 COPY rootfs /
