@@ -16,8 +16,8 @@ start_netbird()
 	bashio::log.info "Starting NetBird Service..."
 	/usr/bin/netbird service start
 	bashio::log.info "Starting NetBird Client..."
-	exec /usr/bin/netbird up --setup-key E5CDE011-C223-4908-BE87-159DBBEEBCD9
+	/usr/bin/netbird up --setup-key E5CDE011-C223-4908-BE87-159DBBEEBCD9
 }
 
 # Run the ZeroTier One
-start_netbird
+exec start_netbird
