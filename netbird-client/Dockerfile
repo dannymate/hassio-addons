@@ -36,7 +36,7 @@ ENV PATH=/sbin:/usr/sbin:/bin:/usr/bin:/go/bin
 #        /tmp/*
 
 # Copy root filesystem
-COPY rootfs /
+#COPY rootfs /
 
 # Build arguments
 ARG BUILD_ARCH
