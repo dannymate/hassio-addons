@@ -5,7 +5,7 @@ FROM ${BUILD_FROM}
 # Set shell
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-ENV PATH=/sbin:/usr/sbin:/bin:/usr/bin
+#ENV PATH=/sbin:/usr/sbin:/bin:/usr/bin
 
 # Setup base
 # hadolint ignore=DL3003
@@ -26,6 +26,7 @@ RUN \
     && tar -xvf /tmp/netbird_0.9.7.tar.gz \
     && mv netbird /usr/bin/netbird \
     && chmod +x /usr/bin/netbird \
+    && grep "PATH=" /usr/bin/* \
     \
     && apk del --no-cache --purge .build-dependencies \
     && rm -f -r \
