@@ -13,7 +13,7 @@ start_netbird()
 {
 	ls /
 	bashio::log.info "22 Installing NetBird Service..."
-	rc-service /go/bin/netbird service install
+	/usr/bin/netbird service install
 	bashio::log.info "Starting NetBird Service..."
 	netbird service start
 	netbird status
