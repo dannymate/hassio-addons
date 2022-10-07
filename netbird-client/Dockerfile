@@ -25,7 +25,7 @@ RUN \
     && tar -xvf /tmp/netbird_0.9.7.tar.gz \
     && mv netbird /usr/bin/netbird \
     && chmod +x /usr/bin/netbird \
-    && grep "PATH=" /usr/bin/* \
+    && export PATH=$PATH:/usr/bin \
     \
     && rm -f -r \
         /tmp/*
