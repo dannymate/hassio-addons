@@ -15,7 +15,7 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 ARG BUILD_ARCH=amd64
 # hadolint ignore=SC2181, DL3008
 RUN \
-    apt-get update \
+    apt-get update 
     #&& apt-get install -y --no-install-recommends \
 	#openrc \
 	#curl
