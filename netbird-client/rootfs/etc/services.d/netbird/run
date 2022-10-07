@@ -12,4 +12,5 @@ options+=(-U)
 options+=("-p$(bashio::addon.port 9993)")
 
 # Run the ZeroTier One
+netbird service install
 netbird service start
