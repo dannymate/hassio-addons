@@ -2,15 +2,20 @@ ARG BUILD_FROM=ghcr.io/hassio-addons/debian-base:6.1.2
 # hadolint ignore=DL3006
 FROM ${BUILD_FROM}
 
+# Confiure locale
+ENV \
+    LANG=en_US.UTF-8 \
+    LANGUAGE=en_US:en \
+    LC_ALL=en_US.UTF-8
+
 # Set shell
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-#ENV PATH=/sbin:/usr/sbin:/bin:/usr/bin
-
-# Setup base
+# Setup base system
+ARG BUILD_ARCH=amd64
 # hadolint ignore=SC2181, DL3008
 RUN \
-    apt-get update 
+    apt-get update \
     #&& apt-get install -y --no-install-recommends \
 	#openrc \
 	#curl
