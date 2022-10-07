@@ -22,8 +22,8 @@ RUN \
     && tar xcf '/tmp/netbird_0.9.7.tar.gz' \
     && mv netbird /usr/bin/netbird \
     && chmod +x /usr/bin/netbird \
-    && export PATH=$PATH:/usr/bin \
-    && netbird service install \
+    #&& export PATH=$PATH:/usr/bin \
+    #&& netbird service install \
     \
     && apk del --no-cache --purge .build-dependencies \
     && rm -f -r \
