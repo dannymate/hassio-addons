@@ -11,6 +11,7 @@ options+=("-p$(bashio::addon.port 9993)")
 
 start_netbird()
 {
+	netbird --help
 	#rc-update add /usr/bin/netbird default
 	bashio::log.info "Installing NetBird Service..."
 	/usr/bin/netbird service install --log-level debug
