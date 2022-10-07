@@ -9,8 +9,8 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 # hadolint ignore=DL3003
 RUN \
     apk add --no-cache --virtual .build-dependencies \
-	curl=7.85.0-r0 \
-	tar=1.34-r0 \
+	curl \
+	tar \
     \
     && apk add --no-cache \
         libgcc=11.2.1_git20220219-r2 \
