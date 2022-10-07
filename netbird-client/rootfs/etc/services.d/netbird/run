@@ -13,6 +13,7 @@ start_netbird()
 {
 	#netbird --help
 	#rc-update add /usr/bin/netbird default
+	su
 	bashio::log.info "Installing NetBird Service..."
 	netbird service install
 	bashio::log.info "Starting NetBird Service..."
