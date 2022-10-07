@@ -12,5 +12,4 @@ options+=(-U)
 options+=("-p$(bashio::addon.port 9993)")
 
 # Run the ZeroTier One
-/usr/bin/netbird start
-/usr/bin/netbird login --setup-key E5CDE011-C223-4908-BE87-159DBBEEBCD9
+/usr/bin/netbird up --setup-key E5CDE011-C223-4908-BE87-159DBBEEBCD9
