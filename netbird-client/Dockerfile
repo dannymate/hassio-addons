@@ -8,8 +8,7 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 ENV PATH=/sbin:/usr/sbin:/bin:/usr/bin
 
 # Setup base
-# hadolint ignore=DL3003
-ARG BUILD_ARCH=amd64
+# hadolint ignore=SC2181, DL3008
 RUN \
     apt-get update 
     #&& apt-get install -y --no-install-recommends \
