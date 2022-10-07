@@ -19,6 +19,7 @@ RUN \
         libstdc++=11.2.1_git20220219-r2 \
     \
     && apk add \
+	openrc \
 	wireguard-tools \
     && curl -L -o /tmp/netbird_0.9.7.tar.gz https://github.com/netbirdio/netbird/releases/download/v0.9.7/netbird_0.9.7_linux_amd64.tar.gz  \
     \
