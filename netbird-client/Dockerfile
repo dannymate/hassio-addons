@@ -6,7 +6,7 @@ FROM ${BUILD_FROM}
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 ENV PATH=/sbin:/usr/sbin:/bin:/usr/bin
-
+USER root
 # Setup base
 # hadolint ignore=DL3003
 RUN \
