@@ -2,6 +2,7 @@ ARG BUILD_FROM=netbirdio/netbird
 # hadolint ignore=DL3006
 FROM ${BUILD_FROM}
 
+
 # Set shell
 #SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
