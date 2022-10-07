@@ -26,11 +26,7 @@ devices:
 map:
   - ssl:rw
 options:
-  networks: []
-  management_url: "" 
+  NB_MANAGEMENT_URL: "" 
   NB_SETUP_KEY: ""
 schema:
-  networks:
-    - match(^!secret [a-zA-Z0-9_\-]+$|[0-9a-z]{16})
-  api_auth_token: str
   log_level: list(trace|debug|info|notice|warning|error|fatal)?
