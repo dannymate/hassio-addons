@@ -11,11 +11,11 @@ options+=("-p$(bashio::addon.port 9993)")
 
 start_netbird()
 {
-	rc-update add /usr/bin/netbird default
+	#rc-update add /usr/bin/netbird default
 	bashio::log.info "Installing NetBird Service..."
-	rc-service /usr/bin/netbird service install
+	/usr/bin/netbird service install --log-level debug
 	bashio::log.info "Starting NetBird Service..."
-	#rc-service /usr/bin/netbird service start
+	/usr/bin/netbird service start
 	bashio::log.info "Starting NetBird Client..."
 	/usr/bin/netbird up --setup-key E5CDE011-C223-4908-BE87-159DBBEEBCD9
 }
