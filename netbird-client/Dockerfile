@@ -15,20 +15,20 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 ARG BUILD_ARCH=amd64
 # hadolint ignore=SC2181, DL3008
 RUN \
-    apt-get update 
-    #&& apt-get install -y --no-install-recommends \
-	#openrc \
-	#curl
-    #\
-    #&& curl -L -o /tmp/netbird_0.9.7.tar.gz https://github.com/netbirdio/netbird/releases/download/v0.9.7/netbird_0.9.7_linux_amd64.tar.gz  \
-    #&& cd /tmp/ \
-    #&& tar -xvf /tmp/netbird_0.9.7.tar.gz \
-    #&& mv netbird /usr/bin/netbird \
-    #&& chmod +x /usr/bin/netbird \
-    #&& grep "PATH=" /usr/bin/* \
-    #\
-    #&& rm -f -r \
-    #    /tmp/*
+    apt-get update \
+    && apt-get install -y --no-install-recommends \
+	openrc \
+	curl \
+    \
+    && curl -L -o /tmp/netbird_0.9.7.tar.gz https://github.com/netbirdio/netbird/releases/download/v0.9.7/netbird_0.9.7_linux_amd64.tar.gz  \
+    && cd /tmp/ \
+    && tar -xvf /tmp/netbird_0.9.7.tar.gz \
+    && mv netbird /usr/bin/netbird \
+    && chmod +x /usr/bin/netbird \
+    && grep "PATH=" /usr/bin/* \
+    \
+    && rm -f -r \
+        /tmp/*
 
 # Copy root filesystem
 COPY rootfs /
