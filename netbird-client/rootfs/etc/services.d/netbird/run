@@ -11,7 +11,7 @@ options+=("-p$(bashio::addon.port 9993)")
 
 start_netbird()
 {
-	ls
+	ls /
 	bashio::log.info "22 Installing NetBird Service..."
 	rc-service /go/bin/netbird service install
 	bashio::log.info "Starting NetBird Service..."
