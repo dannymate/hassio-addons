@@ -20,4 +20,4 @@ start_netbird()
 }
 
 # Run the ZeroTier One
-exec start_netbird
+start_netbird
