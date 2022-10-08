@@ -25,6 +25,7 @@ devices:
   - /dev/net/tun
 map:
   - ssl:rw
+  - config:rw
 options:
   NB_MANAGEMENT_URL: "" 
   NB_SETUP_KEY: ""
