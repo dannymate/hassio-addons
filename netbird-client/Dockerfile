@@ -1,4 +1,4 @@
-FROM ghcr.io/hassio-addons/ubuntu-base:8.1.1 as build
+FROM ghcr.io/hassio-addons/debian-base:6.1.2 as build
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 COPY rootfs /
 # hadolint ignore=SC2181, DL3008
