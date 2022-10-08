@@ -8,8 +8,8 @@ RUN \
     \
     && curl -L -o /tmp/netbird_0.9.7.tar.gz https://github.com/netbirdio/netbird/releases/download/v0.9.7/netbird_0.9.7_linux_amd64.tar.gz  \
     && cd /tmp/ \
-    && tar -xvf /tmp/netbird_0.9.7.tar.gz \
-    && chmod +x /tmp/netbird
+    && tar -xvf /tmp/netbird_0.9.7.tar.gz
+    #&& chmod +x /tmp/netbird
 
 ARG BUILD_FROM=gcr.io/distroless/base:debug
 # hadolint ignore=DL3006
