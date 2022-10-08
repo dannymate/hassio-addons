@@ -1,20 +1,19 @@
 FROM ghcr.io/hassio-addons/debian-base:6.1.2 as build
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
-COPY rootfs /
+
 # hadolint ignore=SC2181, DL3008
 RUN \
     apt-get update \
     && apt-get install -y --no-install-recommends \
 	openrc \
-	curl 
-    
-    #&& curl -L -o /tmp/netbird_0.9.7.tar.gz https://github.com/netbirdio/netbird/releases/download/v0.9.7/netbird_0.9.7_linux_amd64.tar.gz  \
-    #&& tar -xvf /tmp/netbird_0.9.7.tar.gz \
-    #&& chmod +x /tmp/netbird
+	curl \
+    \
+    && curl -L -o /tmp/netbird_0.9.7.tar.gz https://github.com/netbirdio/netbird/releases/download/v0.9.7/netbird_0.9.7_linux_amd64.tar.gz  \
+    && tar -xvf /tmp/netbird_0.9.7.tar.gz \
+    && chmod +x /tmp/netbird
 
-ARG BUILD_FROM=gcr.io/distroless/base:debug
 # hadolint ignore=DL3006
-FROM ${BUILD_FROM}
+FROM gcr.io/distroless/base:debug
 
 ENV NB_LOG_FILE=console
 
