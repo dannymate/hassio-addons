@@ -2,13 +2,7 @@ ARG BUILD_FROM=ghcr.io/hassio-addons/ubuntu-base:8.1.1
 # hadolint ignore=DL3006
 FROM ${BUILD_FROM}
 
-ENV WT_LOG_FILE=console
-
-# Confiure locale
-ENV \
-    LANG=en_US.UTF-8 \
-    LANGUAGE=en_US:en \
-    LC_ALL=en_US.UTF-8
+ENV NB_LOG_FILE=console
 
 # Set shell
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
