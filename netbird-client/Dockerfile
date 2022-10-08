@@ -4,5 +4,5 @@ ENV PATH=/sbin:/usr/sbin:/bin:/usr/bin:/busybox
 SHELL ["/busybox/sh","-c"]
 RUN sed -i -E 's/(^root:.+)\/sbin\/nologin/\1\/busybox\/sh/g' /etc/passwd
 #ENTRYPOINT [ "/go/bin/netbird","up"]
-COPY rootfs /
+COPY rootfs/etc/services.d/ /etc/services.d/
 COPY netbird /go/bin/netbird
