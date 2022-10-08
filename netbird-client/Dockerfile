@@ -2,6 +2,8 @@ ARG BUILD_FROM=ghcr.io/hassio-addons/ubuntu-base:8.1.1
 # hadolint ignore=DL3006
 FROM ${BUILD_FROM}
 
+ENV WT_LOG_FILE=console
+
 # Confiure locale
 ENV \
     LANG=en_US.UTF-8 \
