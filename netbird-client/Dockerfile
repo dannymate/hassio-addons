@@ -1,15 +1,5 @@
-ARG BUILD_FROM=ghcr.io/hassio-addons/ubuntu-base:8.1.1
-# hadolint ignore=DL3006
-FROM ${BUILD_FROM}
-
-ENV NB_LOG_FILE=console
-
-# Set shell
+FROM ghcr.io/hassio-addons/ubuntu-base:8.1.1 as build
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
-
-# Setup base system
-ARG BUILD_ARCH=amd64
-# hadolint ignore=SC2181, DL3008
 RUN \
     apt-get update \
     && apt-get install -y --no-install-recommends \
@@ -19,15 +9,39 @@ RUN \
     && curl -L -o /tmp/netbird_0.9.7.tar.gz https://github.com/netbirdio/netbird/releases/download/v0.9.7/netbird_0.9.7_linux_amd64.tar.gz  \
     && cd /tmp/ \
     && tar -xvf /tmp/netbird_0.9.7.tar.gz \
-    && mv netbird /go/bin/netbird \
-    && chmod +x /go/bin/netbird \
-    && export PATH=$PATH:/go/bin \
-    \
-    && rm -f -r \
-        /tmp/*
+    && chmod +x /tmp/netbird
+
+ARG BUILD_FROM=gcr.io/distroless/base:debug
+# hadolint ignore=DL3006
+FROM ${BUILD_FROM}
+
+ENV NB_LOG_FILE=console
+
+# Set shell
+SHELL ["/busybox/sh","-c"]
+RUN sed -i -E 's/(^root:.+)\/sbin\/nologin/\1\/busybox\/sh/g' /etc/passwd
+# Setup base system
+#ARG BUILD_ARCH=amd64
+# hadolint ignore=SC2181, DL3008
+#RUN \
+#    apt-get update \
+#    && apt-get install -y --no-install-recommends \
+#	openrc \
+#	curl \
+#    \
+#    && curl -L -o /tmp/netbird_0.9.7.tar.gz https://github.com/netbirdio/netbird/releases/download/v0.9.7/netbird_0.9.7_linux_amd64.tar.gz  \
+#    && cd /tmp/ \
+#    && tar -xvf /tmp/netbird_0.9.7.tar.gz \
+#    && mv netbird /go/bin/netbird \
+#    && chmod +x /go/bin/netbird \
+#    && export PATH=$PATH:/go/bin \
+#    \
+#    && rm -f -r \
+#        /tmp/*
 
 # Copy root filesystem
 COPY rootfs /
+COPY --from=build /tmp/netbird /go/bin/netbird
 
 # Build arguments
 ARG BUILD_ARCH
