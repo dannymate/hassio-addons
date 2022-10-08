@@ -14,13 +14,13 @@ RUN \
     && chmod +x /tmp/netbird
 
 # hadolint ignore=DL3006
-FROM gcr.io/distroless/base:debug
+FROM ghcr.io/hassio-addons/debian-base:6.1.2
 
 ENV NB_LOG_FILE=console
 
 # Set shell
-SHELL ["/busybox/sh","-c"]
-RUN sed -i -E 's/(^root:.+)\/sbin\/nologin/\1\/busybox\/sh/g' /etc/passwd
+#SHELL ["/busybox/sh","-c"]
+#RUN sed -i -E 's/(^root:.+)\/sbin\/nologin/\1\/busybox\/sh/g' /etc/passwd
 # Setup base system
 #ARG BUILD_ARCH=amd64
 # hadolint ignore=SC2181, DL3008
