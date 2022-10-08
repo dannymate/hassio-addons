@@ -1,5 +1,6 @@
 FROM ghcr.io/hassio-addons/ubuntu-base:8.1.1 as build
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+# hadolint ignore=SC2181, DL3008
 RUN \
     apt-get update \
     && apt-get install -y --no-install-recommends \
@@ -8,8 +9,8 @@ RUN \
     \
     && curl -L -o /tmp/netbird_0.9.7.tar.gz https://github.com/netbirdio/netbird/releases/download/v0.9.7/netbird_0.9.7_linux_amd64.tar.gz  \
     && cd /tmp/ \
-    && tar -xvf /tmp/netbird_0.9.7.tar.gz
-    #&& chmod +x /tmp/netbird
+    && tar -xvf /tmp/netbird_0.9.7.tar.gz \
+    && chmod +x /tmp/netbird
 
 ARG BUILD_FROM=gcr.io/distroless/base:debug
 # hadolint ignore=DL3006
