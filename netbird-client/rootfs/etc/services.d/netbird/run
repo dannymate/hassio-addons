@@ -11,13 +11,8 @@ options+=("-p$(bashio::addon.port 9993)")
 
 start_netbird()
 {
-	bashio::log.info "22 Installing NetBird Service..."
-	/go/bin/netbird service install
-	bashio::log.info "Starting NetBird Service..."
-	/go/bin/netbird service start --log-level debug --log-file console
-	/go/bin/netbird status
 	bashio::log.info "Starting NetBird Client..."
-	/go/bin/netbird up --setup-key E5CDE011-C223-4908-BE87-159DBBEEBCD9
+	/go/bin/netbird up --setup-key E05D2462-6A55-4676-94F3-096559327C4C
 }
 
 # Run the ZeroTier One
