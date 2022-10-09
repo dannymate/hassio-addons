@@ -20,7 +20,7 @@ then
     SETUP_KEY_FLAG="";
 else
     bashio::log.info "Using ${SETUP_KEY} as Setup Key"
-    SETUP_KEY_FLAG=--setup-key "${SETUP_KEY}"
+    SETUP_KEY_FLAG="--setup-key "${SETUP_KEY}""
 fi
 
 
@@ -30,7 +30,7 @@ then
     MANAGEMENT_URL_FLAG="";
 else
     bashio::log.info "Using ${MANAGEMENT_URL} as Management URL"
-    MANAGEMENT_URL_FLAG=--management-url "${MANAGEMENT_URL}"
+    MANAGEMENT_URL_FLAG="--management-url "${MANAGEMENT_URL}""
 fi
 
 
