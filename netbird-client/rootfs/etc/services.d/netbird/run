@@ -13,23 +13,23 @@ CONFIG_PATH=/data/options.json
 SETUP_KEY="$(bashio::config 'SETUP_KEY')"
 MANAGEMENT_URL="$(bashio::config 'MANAGEMENT_URL')"
 
-if [ "$SETUP_KEY" = "" ];
+if [ "${SETUP_KEY}" = "" ];
 then
     bashio::log.info "No Setup Key Set"
     bashio::log.info "This client will only show up in dashboards it's already registered with."
     SETUP_KEY_FLAG="";
 else
-    bashio::log.info "Using $SETUP_KEY as Setup Key"
+    bashio::log.info "Using ${SETUP_KEY} as Setup Key"
     SETUP_KEY_FLAG=--setup-key "${SETUP_KEY}"
 fi
 
 
-if [ "$MANAGEMENT_URL" = "" ];
+if [ "${MANAGEMENT_URL}" = "" ];
 then
     bashio::log.info "Using Default Management URL"
     MANAGEMENT_URL_FLAG="";
 else
-    bashio::log.info "Using $MANAGEMENT_URL as Management URL"
+    bashio::log.info "Using ${MANAGEMENT_URL} as Management URL"
     MANAGEMENT_URL_FLAG=--management-url "${MANAGEMENT_URL}"
 fi
 
