@@ -20,7 +20,7 @@ then
     bashio::log.info "This client will only show up in dashboards it's already registered with."
 else
     bashio::log.info "Using ${SETUP_KEY} as Setup Key"
-    options+=("--setup-key ${SETUP_KEY}")
+    options+=(--setup-key "${SETUP_KEY}")
 
 fi
 
@@ -30,7 +30,7 @@ then
     bashio::log.info "Using Default Management URL"
 else
     bashio::log.info "Using ${MANAGEMENT_URL} as Management URL"
-    options+=("--management-url ${MANAGEMENT_URL}")
+    options+=(--management-url "${MANAGEMENT_URL}")
 fi
 
 
