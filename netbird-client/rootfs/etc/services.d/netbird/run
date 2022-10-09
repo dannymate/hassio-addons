@@ -13,24 +13,24 @@ CONFIG_PATH=/data/options.json
 SETUP_KEY="$(bashio::config 'SETUP_KEY')"
 MANAGEMENT_URL="$(bashio::config 'MANAGEMENT_URL')"
 
+
 if [ "${SETUP_KEY}" = "" ];
 then
     bashio::log.info "No Setup Key Set"
     bashio::log.info "This client will only show up in dashboards it's already registered with."
-    SETUP_KEY_FLAG="";
 else
     bashio::log.info "Using ${SETUP_KEY} as Setup Key"
-    SETUP_KEY_FLAG="--setup-key "${SETUP_KEY}""
+    options+=("--setup-key ${SETUP_KEY}")
+
 fi
 
 
 if [ "${MANAGEMENT_URL}" = "" ];
 then
     bashio::log.info "Using Default Management URL"
-    MANAGEMENT_URL_FLAG="";
 else
     bashio::log.info "Using ${MANAGEMENT_URL} as Management URL"
-    MANAGEMENT_URL_FLAG="--management-url "${MANAGEMENT_URL}""
+    options+=("--management-url ${MANAGEMENT_URL}")
 fi
 
 
@@ -38,7 +38,7 @@ fi
 start_netbird()
 {
 	bashio::log.info "Starting NetBird Client..."
-	/go/bin/netbird up "${SETUP_KEY_FLAG}" "${MANAGEMENT_URL_FLAG}" --config /config/netbird/config.json
+	/go/bin/netbird up "${options[@]}" --config /config/netbird/config.json
 }
 
 # Run the ZeroTier One
