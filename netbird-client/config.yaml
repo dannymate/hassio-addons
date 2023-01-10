@@ -27,6 +27,7 @@ options:
   MANAGEMENT_URL: "" 
   SETUP_KEY: ""
 schema:
+  ADMIN_URL: str
   MANAGEMENT_URL: str
   SETUP_KEY: str
   log_level: list(trace|debug|info|notice|warning|error|fatal)?
