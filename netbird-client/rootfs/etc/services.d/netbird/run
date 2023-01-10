@@ -20,6 +20,14 @@ else
 
 fi
 
+if [ "${ADMIN_URL}" = "" ];
+then
+    bashio::log.info "Using Default Admin URL"
+else
+    bashio::log.info "Using ${ADMIN_URL} as Admin URL"
+    options+=(--admin-url "${ADMIN_URL}")
+fi
+
 if [ "${MANAGEMENT_URL}" = "" ];
 then
     bashio::log.info "Using Default Management URL"

@@ -23,6 +23,7 @@ map:
   - ssl:rw
   - config:rw
 options:
+  ADMIN_URL: ""
   MANAGEMENT_URL: "" 
   SETUP_KEY: ""
 schema:
