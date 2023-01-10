@@ -1,6 +1,6 @@
 # hadolint ignore=DL3006
-FROM ghcr.io/hassio-addons/debian-base:6.2.0
-
+ARG BUILD_FROM=ghcr.io/hassio-addons/debian-base:6.2.0
+FROM ${BUILD_FROM}
 
 ENV NB_LOG_FILE=console
 
@@ -39,7 +39,7 @@ LABEL \
     io.hass.arch="${BUILD_ARCH}" \
     io.hass.type="addon" \
     io.hass.version=${BUILD_VERSION} \
-    maintainer="Franck Nijhof <frenck@addons.community>" \
+    maintainer="Daniel Burgess" \
     org.opencontainers.image.title="${BUILD_NAME}" \
     org.opencontainers.image.description="${BUILD_DESCRIPTION}" \
     org.opencontainers.image.vendor="Home Assistant Community Add-ons" \
