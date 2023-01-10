@@ -7,6 +7,7 @@ declare -a options
 
 # Get the options configured in HASS GUI
 CONFIG_PATH=/data/options.json
+ADMIN_URL="$(bashio::config 'ADMIN_URL')"
 SETUP_KEY="$(bashio::config 'SETUP_KEY')"
 MANAGEMENT_URL="$(bashio::config 'MANAGEMENT_URL')"
 
