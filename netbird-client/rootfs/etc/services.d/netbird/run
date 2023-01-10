@@ -38,5 +38,5 @@ else
 fi
 
 bashio::log.info "Starting NetBird Client..."
-/go/bin/netbird up "${options[@]}" --config /config/netbird/config.json
+netbird up "${options[@]}" --config /config/netbird/config.json
 

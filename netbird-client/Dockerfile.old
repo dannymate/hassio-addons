@@ -1,27 +1,26 @@
-# hadolint ignore=DL3006
-FROM ghcr.io/hassio-addons/debian-base:6.2.0
-
-
-ENV NB_LOG_FILE=console
-
-# Copy root filesystem
-COPY rootfs /
-
+FROM ghcr.io/hassio-addons/debian-base:6.2.0 as build
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # hadolint ignore=SC2181, DL3008
 RUN \
     apt-get update \
     && apt-get install -y --no-install-recommends \
-	ca-certificates \
+	openrc \
 	curl \
-	gnupg \
     \
-    && curl -sSL https://pkgs.wiretrustee.com/debian/public.key | sudo gpg --dearmor --output /usr/share/keyrings/wiretrustee-archive-keyring.gpg \
-    && echo 'deb [signed-by=/usr/share/keyrings/wiretrustee-archive-keyring.gpg] https://pkgs.wiretrustee.com/debian stable main' | sudo tee /etc/apt/sources.list.d/wiretrustee.list \
-    && apt-get update \
-    && apt-get install netbird
+    && curl -L -o /tmp/netbird_0.11.6.tar.gz https://github.com/netbirdio/netbird/releases/download/v0.11.6/netbird_0.11.6_linux_amd64.tar.gz  \
+    && cd /tmp \
+    && tar -xvf /tmp/netbird_0.11.6.tar.gz \
+    && chmod +x /tmp/netbird
 
+# hadolint ignore=DL3006
+FROM ghcr.io/hassio-addons/debian-base:6.2.0
+
+ENV NB_LOG_FILE=console
+
+# Copy root filesystem
+COPY rootfs /
+COPY --from=build /tmp/netbird /go/bin/netbird
 
 # Build arguments
 ARG BUILD_ARCH
