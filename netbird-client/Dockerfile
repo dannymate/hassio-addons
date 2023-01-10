@@ -17,8 +17,8 @@ RUN \
 	curl \
 	gnupg \
     \
-    && curl -sSL https://pkgs.wiretrustee.com/debian/public.key | sudo gpg --dearmor --output /usr/share/keyrings/wiretrustee-archive-keyring.gpg \
-    && echo 'deb [signed-by=/usr/share/keyrings/wiretrustee-archive-keyring.gpg] https://pkgs.wiretrustee.com/debian stable main' | sudo tee /etc/apt/sources.list.d/wiretrustee.list \
+    && curl -sSL https://pkgs.wiretrustee.com/debian/public.key | gpg --dearmor --output /usr/share/keyrings/wiretrustee-archive-keyring.gpg \
+    && echo 'deb [signed-by=/usr/share/keyrings/wiretrustee-archive-keyring.gpg] https://pkgs.wiretrustee.com/debian stable main' | tee /etc/apt/sources.list.d/wiretrustee.list \
     && apt-get update \
     && apt-get install netbird
 
