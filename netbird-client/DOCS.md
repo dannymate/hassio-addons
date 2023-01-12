@@ -62,8 +62,7 @@ option empty if you would prefer to login via a URL generated in the log with th
 
 ## Changelog & Releases
 
-This repository keeps a change log using [GitHub's releases][releases]
-functionality.
+This repository keeps a change log using a CHANGELOG.md for each app.
 
 Releases are based on [Semantic Versioning][semver], and use the format
 of `MAJOR.MINOR.PATCH`. In a nutshell, the version will be incremented
@@ -122,12 +121,11 @@ SOFTWARE.
 <!-- GITHUB LINKS -->
 [contributors]: https://github.com/dannymate/hassio-addons/graphs/contributors
 [issue]: https://github.com/dannymate/hassio-addons/issues
-[releases]: https://github.com/hassio-addons/addon-zerotier/releases
 [dannymate]: https://github.com/dannymate
 
 <!-- Forums -->
 [discord-ha]: https://discord.gg/c5DvZ4e
-[forum]: https://community.home-assistant.io/t/home-assistant-community-add-on-zerotier-one/109091?u=frenck
+[forum]: https://community.home-assistant.io/t/netbird-client-add-on/517762
 [reddit]: https://reddit.com/r/homeassistant
 
 [semver]: http://semver.org/spec/v2.0.0.htm

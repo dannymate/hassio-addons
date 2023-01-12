@@ -1,6 +1,5 @@
 # Home Assistant Community Add-on: NetBird-Client
 
-[![GitHub Release][releases-shield]][releases]
 [![License][license-shield]](LICENSE.md)
 
 ![Supports aarch64 Architecture][aarch64-shield]
@@ -18,7 +17,7 @@ Connect your devices into a single secure private WireGuard®-based mesh network
 
 ## About
 
-NetBird is an open-source VPN management platform built on top of WireGuard® making it easy to create secure private networks for your organization or home.
+[NetBird][netbird] is an open-source VPN management platform built on top of WireGuard® making it easy to create secure private networks for your organization or home.
 
 It requires zero configuration effort leaving behind the hassle of opening ports, complex firewall rules, VPN gateways, and so forth.
 
@@ -93,7 +92,6 @@ SOFTWARE.
 [contributors]: https://github.com/dannymate/hassio-addons/graphs/contributors
 [issue]: https://github.com/dannymate/hassio-addons/issues
 [docs]: https://github.com/dannymate/hassio-addons/blob/main/netbird-client/DOCS.md
-[releases]: https://github.com/hassio-addons/addon-zerotier/releases
 [dannymate]: https://github.com/dannymate
 
 <!-- Frenck -->
@@ -104,15 +102,10 @@ SOFTWARE.
 [commits-shield]: https://img.shields.io/github/commit-activity/y/dannymate/hassio-addons.svg
 [license-shield]: https://img.shields.io/github/license/dannymate/hassio-addons.svg
 [maintenance-shield]: https://img.shields.io/maintenance/yes/2023.svg
-[releases-shield]: https://img.shields.io/github/release/dannymate/hassio-addons.svg
 
 <!-- HASSIO Forum -->
 [forum-shield]: https://img.shields.io/badge/community-forum-brightgreen.svg
-[forum]: https://community.home-assistant.io/t/home-assistant-community-add-on-zerotier-one/109091?u=frenck
+[forum]: https://community.home-assistant.io/t/netbird-client-add-on/517762
 [reddit]: https://reddit.com/r/homeassistant
 
-
-
-
-
-
+[netbird]: https://netbird.io/
