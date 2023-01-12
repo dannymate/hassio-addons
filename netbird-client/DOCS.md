@@ -1,45 +1,26 @@
-# Home Assistant Community Add-on: ZeroTier One
+# Home Assistant Community Add-on: NetBird-Client
 
-[ZeroTier][zerotier] delivers the capabilities of VPNs, SDN, and SD-WAN with
-a single system. Manage all your connected resources across both local
-and wide area networks as if the whole world is a single data center.
+[NetBird][netbird] is an open-source VPN management platform built on top of WireGuard® making it easy to create secure private networks for your organization or home.
 
-People use ZeroTier to seamlessly connect laptops, desktops, phones,
-embedded devices, cloud resources, and apps any way they want anywhere they go.
-It transforms the entire world into a single data center, to which you
-can now add your Home Assistant instance using this add-on.
+It requires zero configuration effort leaving behind the hassle of opening ports, complex firewall rules, VPN gateways, and so forth.
+
+NetBird uses NAT traversal techniques to automatically create an overlay peer-to-peer network connecting machines regardless of location (home, office, data center, container, cloud, or edge environments and now HASSIO with this add-on), unifying virtual private network management experience.
 
 ## Installation
 
 The installation of this add-on is pretty straightforward and not different in
-comparison to installing any other Home Assistant add-on.
+comparison to installing any other Hass.io add-on.
 
-1. Click the Home Assistant My button below to open the add-on on your Home
-   Assistant instance.
-
-   [![Open this add-on in your Home Assistant instance.][addon-badge]][addon]
-
-1. Click the "Install" button to install the add-on.
-1. Create a free account at [zerotier.com][zerotier] and get a network ID.
-1. Set the "network_id" add-on option with your network ID.
-1. Start the "ZeroTier One" add-on
-1. Check the logs of the "ZeroTier One" add-on to see if everything went well.
-1. The instance will show up in your ZeroTier account.
+1. Add my Hass.io add-ons repository (**https://github.com/dannymate/hassio-addons**) to your Hass.io instance.
+2. Install the "NetBird-Client" add-on.
+3. If you are using the central NetBird instance you can either use the URL generated in the log or you can use a `SETUP_KEY`. If hosting your own then you'll want to set `ADMIN_URL` & `MANAGEMENT_URL` and again only need to set up the `SETUP_KEY` if you don't want to login via the log generated URL.
+4. Start the "NetBird-Client" add-on.
+5. Feels free to check the logs for `NetBird-Client` to make sure its booted correctly.
+6. This client will show up in your NetBird dashboard.
 
 ## Configuration
 
-**Note**: _Remember to restart the add-on when the configuration is changed._
-
-Example add-on configuration:
-
-```yaml
-networks:
-  - wgfyiwe73747457
-  - fhu3888892jjfdk
-api_auth_token: ""
-```
-
-**Note**: _This is just an example, don't copy and paste it! Create your own!_
+You'll see the config file at `/config/netbird/config.json` after first boot.
 
 ### Option: `log_level`
 
@@ -59,25 +40,25 @@ more severe level, e.g., `debug` also shows `info` messages. By default,
 the `log_level` is set to `info`, which is the recommended setting unless
 you are troubleshooting.
 
-### Option: `networks`
+### Option: `ADMIN_URL`
 
-Configures one or more network identifiers of the networks (VLAN) to join.
-You can find this number in your ZeroTier account.
+Admin Panel URL [http|https]://[host]:[port] (default "https://app.netbird.io")
 
-**Note**: _This option support secrets, e.g., `!secret zerotier_network_id`._
+Tells NetBird the URL through which you administrate your NetBird clients.
+You'll find that the log generates a login URL you can use instead of configuring a `SETUP_KEY`. (If you're not already connected to a NetBird instance.)
 
-### Option: `api_auth_token`
+### Option: `MANAGEMENT_URL`
 
-ZeroTier exposes a local HTTP JSON API, which uses the port set using the
-`port` option above. It allows tools and programs to access this ZeroTier
-instance for quering data (or control it).
+Management Service URL [http|https]://[host]:[port] (default "https://api.wiretrustee.com:33073")
 
-This token is like a password for accessing that API, you can leave this
-option empty if you are not planning on using this feature.
+The client will use this URL to communicate with your NetBird instance api.
 
-For more information on the ZeroTier JSON API, [check their documentation][api].
+### Option: `SETUP_KEY`
 
-**Note**: _This option support secrets, e.g., `!secret zerotier_token`._
+Setup key obtained from the Management Service Dashboard (used to register peer)
+
+This token is like a password for connecting your client to NetBird, you can leave this
+option empty if you would prefer to login via a URL generated in the log with the `ADMIN_URL`.
 
 ## Changelog & Releases
 
@@ -98,8 +79,6 @@ Got questions?
 
 You have several options to get them answered:
 
-- The [Home Assistant Community Add-ons Discord chat server][discord] for add-on
-  support and feature requests.
 - The [Home Assistant Discord chat server][discord-ha] for general Home
   Assistant discussions and questions.
 - The Home Assistant [Community Forum][forum].
@@ -109,7 +88,7 @@ You could also [open an issue here][issue] GitHub.
 
 ## Authors & contributors
 
-The original setup of this repository is by [Franck Nijhof][frenck].
+The original setup of this repository was by [Daniel Burgess][dannymate], forked from [Franck Nijhof][frenck]'s [Zerotier-One add-on][zt-one-addon].
 
 For a full list of all authors and contributors,
 check [the contributor's page][contributors].
@@ -119,6 +98,7 @@ check [the contributor's page][contributors].
 MIT License
 
 Copyright (c) 2019-2022 Franck Nijhof
+Copyright (c) 2022-2023 Daniel Burgess
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -138,16 +118,21 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-[addon-badge]: https://my.home-assistant.io/badges/supervisor_addon.svg
-[addon]: https://my.home-assistant.io/redirect/supervisor_addon/?addon=a0d7b954_zerotier&repository_url=https%3A%2F%2Fgithub.com%2Fhassio-addons%2Frepository
-[api]: https://www.zerotier.com/manual.shtml#4_1
-[contributors]: https://github.com/hassio-addons/addon-zerotier/graphs/contributors
-[discord-ha]: https://discord.gg/c5DvZ4e
-[discord]: https://discord.me/hassioaddons
-[forum]: https://community.home-assistant.io/t/home-assistant-community-add-on-zerotier-one/109091?u=frenck
-[frenck]: https://github.com/frenck
-[issue]: https://github.com/hassio-addons/addon-zerotier/issues
-[reddit]: https://reddit.com/r/homeassistant
+
+<!-- GITHUB LINKS -->
+[contributors]: https://github.com/dannymate/hassio-addons/graphs/contributors
+[issue]: https://github.com/dannymate/hassio-addons/issues
 [releases]: https://github.com/hassio-addons/addon-zerotier/releases
+[dannymate]: https://github.com/dannymate
+
+<!-- Forums -->
+[discord-ha]: https://discord.gg/c5DvZ4e
+[forum]: https://community.home-assistant.io/t/home-assistant-community-add-on-zerotier-one/109091?u=frenck
+[reddit]: https://reddit.com/r/homeassistant
+
 [semver]: http://semver.org/spec/v2.0.0.htm
-[zerotier]: https://www.zerotier.com/
+[netbird]: https://netbird.io/
+
+<!-- Frenck -->
+[zt-one-addon]: https://github.com/hassio-addons/addon-zerotier
+[frenck]: https://github.com/frenck
