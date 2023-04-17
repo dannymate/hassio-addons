@@ -1,8 +1,8 @@
 # Changelog
 
-# 1.15.3
+# 1.16.0
 
-- Update Netbird to 0.15.3
+- Update Netbird to 0.16.0
 
 # 1.12.0
 
