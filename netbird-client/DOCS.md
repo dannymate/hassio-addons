@@ -14,6 +14,7 @@ comparison to installing any other Hass.io add-on.
 1. Add my Hass.io add-ons repository (**https://github.com/dannymate/hassio-addons**) to your Hass.io instance.
 2. Install the "NetBird-Client" add-on.
 3. If you are using the central NetBird instance you can either use the URL generated in the log or you can use a `SETUP_KEY`. If hosting your own then you'll want to set `ADMIN_URL` & `MANAGEMENT_URL` and again only need to set up the `SETUP_KEY` if you don't want to login via the log generated URL.
+4. If you would like to change the auto generated hostname (which is the docker container id in case of hassio) set the `HOSTNAME`.
 4. Start the "NetBird-Client" add-on.
 5. Feels free to check the logs for `NetBird-Client` to make sure its booted correctly.
 6. This client will show up in your NetBird dashboard.
@@ -59,6 +60,12 @@ Setup key obtained from the Management Service Dashboard (used to register peer)
 
 This token is like a password for connecting your client to NetBird, you can leave this
 option empty if you would prefer to login via a URL generated in the log with the `ADMIN_URL`.
+
+### Option: `HOSTNAME`
+
+Hostname in the NetBird network (used to during registration)
+
+This hostname will be used in the Peers to identify your machine.
 
 ## Changelog & Releases
 
@@ -116,7 +123,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 
 <!-- GITHUB LINKS -->
 [contributors]: https://github.com/dannymate/hassio-addons/graphs/contributors
