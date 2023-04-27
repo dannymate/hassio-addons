@@ -8,18 +8,9 @@ declare -a options
 # Get the options configured in HASS GUI
 CONFIG_PATH=/data/options.json
 ADMIN_URL="$(bashio::config 'ADMIN_URL')"
-SETUP_KEY="$(bashio::config 'SETUP_KEY')"
 MANAGEMENT_URL="$(bashio::config 'MANAGEMENT_URL')"
-
-if [ "${SETUP_KEY}" = "" ];
-then
-    bashio::log.info "No Setup Key Set"
-    bashio::log.info "This client will only show up in dashboards it's already registered with."
-else
-    bashio::log.info "Using ${SETUP_KEY} as Setup Key"
-    options+=(--setup-key "${SETUP_KEY}")
-
-fi
+SETUP_KEY="$(bashio::config 'SETUP_KEY')"
+HOSTNAME="$(bashio::config 'HOSTNAME')"
 
 if [ "${ADMIN_URL}" = "" ];
 then
@@ -35,6 +26,26 @@ then
 else
     bashio::log.info "Using ${MANAGEMENT_URL} as Management URL"
     options+=(--management-url "${MANAGEMENT_URL}")
+fi
+
+if [ "${SETUP_KEY}" = "" ];
+then
+    bashio::log.info "No Setup Key Set"
+    bashio::log.info "This client will only show up in dashboards it's already registered with."
+else
+    bashio::log.info "Using ${SETUP_KEY} as Setup Key"
+    options+=(--setup-key "${SETUP_KEY}")
+
+fi
+
+if [ "${HOSTNAME}" = "" ];
+then
+    bashio::log.info "No Hostname Set"
+    bashio::log.info "This client will use the default (<docker container id>-netbird-client) as hostname in peers."
+else
+    bashio::log.info "Using ${HOSTNAME} as hostname"
+    options+=(--hostname "${HOSTNAME}")
+
 fi
 
 bashio::log.info "Starting NetBird Client..."

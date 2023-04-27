@@ -1,6 +1,6 @@
 ---
 name: NetBird-Client
-version: 1.12.2
+version: 1.17.0
 slug: netbird_client
 description: Connect your devices into a single secure private WireGuard®-based mesh network with SSO/MFA and simple access controls.
 url: https://github.com/dannymate/hassio-addons
@@ -25,8 +25,10 @@ options:
   ADMIN_URL: ""
   MANAGEMENT_URL: "" 
   SETUP_KEY: ""
+  HOSTNAME: ""
 schema:
   ADMIN_URL: str
   MANAGEMENT_URL: str
   SETUP_KEY: str
+  HOSTNAME: str
   log_level: list(trace|debug|info|notice|warning|error|fatal)?
