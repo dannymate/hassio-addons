@@ -37,6 +37,9 @@ else
     options+=(--management-url "${MANAGEMENT_URL}")
 fi
 
+bashio::log.info "Starting NetBird Service"...
+netbird service start --config /config/netbird/config.json
+
 bashio::log.info "Starting NetBird Client..."
 netbird up "${options[@]}" --config /config/netbird/config.json
 
