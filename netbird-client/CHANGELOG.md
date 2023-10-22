@@ -1,4 +1,8 @@
 # Changelog
+# 1.23.9
+- Update NetBird to 0.23.9
+- Update base images
+
 # 1.12.0
 - Update Netbird to 0.12.0
 - Changed add-on Version to follow Netbird
