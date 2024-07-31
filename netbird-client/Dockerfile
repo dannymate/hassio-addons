@@ -1,5 +1,5 @@
 # hadolint ignore=DL3006
-ARG BUILD_FROM=ghcr.io/hassio-addons/debian-base:7.2.0
+ARG BUILD_FROM=ghcr.io/hassio-addons/debian-base:7.4.0
 FROM ${BUILD_FROM}
 
 ENV NB_LOG_FILE=console
