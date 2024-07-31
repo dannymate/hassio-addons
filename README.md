@@ -101,7 +101,7 @@ SOFTWARE.
 <!--Github Shields -->
 [commits-shield]: https://img.shields.io/github/commit-activity/y/dannymate/hassio-addons.svg
 [license-shield]: https://img.shields.io/github/license/dannymate/hassio-addons.svg
-[maintenance-shield]: https://img.shields.io/maintenance/yes/2023.svg
+[maintenance-shield]: https://img.shields.io/maintenance/yes/2024.svg
 
 <!-- HASSIO Forum -->
 [forum-shield]: https://img.shields.io/badge/community-forum-brightgreen.svg
