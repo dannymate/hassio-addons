@@ -98,6 +98,7 @@ MIT License
 
 Copyright (c) 2019-2022 Franck Nijhof
 Copyright (c) 2022-2023 Daniel Burgess
+Copyright (c) 2024 Felix Arnold
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
