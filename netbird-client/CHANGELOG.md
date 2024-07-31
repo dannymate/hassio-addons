@@ -1,5 +1,5 @@
 # Changelog
-# 1.28.6 - latest
+# latest
 - removed version pinning
 
 # 1.23.9
