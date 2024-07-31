@@ -1,4 +1,7 @@
 # Changelog
+# 1.28.6 - latest
+- removed version pinning
+
 # 1.23.9
 - Update NetBird to 0.23.9
 - Update base images
