@@ -20,7 +20,7 @@ RUN \
     && curl -sSL https://pkgs.wiretrustee.com/debian/public.key | gpg --dearmor --output /usr/share/keyrings/wiretrustee-archive-keyring.gpg \
     && echo 'deb [signed-by=/usr/share/keyrings/wiretrustee-archive-keyring.gpg] https://pkgs.wiretrustee.com/debian stable main' | tee /etc/apt/sources.list.d/wiretrustee.list \
     && apt-get update \
-    && apt-get install netbird=0.23.9
+    && apt-get install netbird
 
 
 # Build arguments
@@ -39,7 +39,7 @@ LABEL \
     io.hass.arch="${BUILD_ARCH}" \
     io.hass.type="addon" \
     io.hass.version=${BUILD_VERSION} \
-    maintainer="Daniel Burgess" \
+    maintainer="Felix Arnold" \
     org.opencontainers.image.title="${BUILD_NAME}" \
     org.opencontainers.image.description="${BUILD_DESCRIPTION}" \
     org.opencontainers.image.vendor="Home Assistant Community Add-ons" \
