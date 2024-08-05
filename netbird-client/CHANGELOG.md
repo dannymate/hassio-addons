@@ -1,4 +1,9 @@
 # Changelog
+# 1.28.7
+- Update NetBird to 0.28.7
+- Update base images
+- Change PGP key to new URL
+
 # 1.23.9
 - Update NetBird to 0.23.9
 - Update base images

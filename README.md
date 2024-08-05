@@ -52,6 +52,10 @@ Thank you for being involved! :heart_eyes:
 
 The original setup of this repository was by [Daniel Burgess][dannymate], forked from [Franck Nijhof][frenck]'s [Zerotier-One add-on][zt-one-addon].
 
+Contributors
+Glenn Sommer
+Felix Arnold
+
 For a full list of all authors and contributors,
 check [the contributor's page][contributors].
 
@@ -101,7 +105,7 @@ SOFTWARE.
 <!--Github Shields -->
 [commits-shield]: https://img.shields.io/github/commit-activity/y/dannymate/hassio-addons.svg
 [license-shield]: https://img.shields.io/github/license/dannymate/hassio-addons.svg
-[maintenance-shield]: https://img.shields.io/maintenance/yes/2023.svg
+[maintenance-shield]: https://img.shields.io/maintenance/yes/2024.svg
 
 <!-- HASSIO Forum -->
 [forum-shield]: https://img.shields.io/badge/community-forum-brightgreen.svg

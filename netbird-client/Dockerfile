@@ -1,5 +1,5 @@
 # hadolint ignore=DL3006
-ARG BUILD_FROM=ghcr.io/hassio-addons/debian-base:7.2.0
+ARG BUILD_FROM=ghcr.io/hassio-addons/debian-base:7.4.0
 FROM ${BUILD_FROM}
 
 ENV NB_LOG_FILE=console
@@ -17,10 +17,10 @@ RUN \
 	curl \
 	gnupg \
     \
-    && curl -sSL https://pkgs.wiretrustee.com/debian/public.key | gpg --dearmor --output /usr/share/keyrings/wiretrustee-archive-keyring.gpg \
-    && echo 'deb [signed-by=/usr/share/keyrings/wiretrustee-archive-keyring.gpg] https://pkgs.wiretrustee.com/debian stable main' | tee /etc/apt/sources.list.d/wiretrustee.list \
+    && curl -sSL https://pkgs.netbird.io/debian/public.key | gpg --dearmor --output /usr/share/keyrings/netbird-archive-keyring.gpg \
+    && echo 'deb [signed-by=/usr/share/keyrings/netbird-archive-keyring.gpg] https://pkgs.netbird.io/debian/ stable main' | tee /etc/apt/sources.list.d/netbird.list \
     && apt-get update \
-    && apt-get install netbird=0.23.9
+    && apt-get install netbird=0.28.7
 
 
 # Build arguments
