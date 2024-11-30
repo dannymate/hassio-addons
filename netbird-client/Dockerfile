@@ -20,7 +20,7 @@ RUN \
     && curl -sSL https://pkgs.netbird.io/debian/public.key | gpg --dearmor --output /usr/share/keyrings/netbird-archive-keyring.gpg \
     && echo 'deb [signed-by=/usr/share/keyrings/netbird-archive-keyring.gpg] https://pkgs.netbird.io/debian/ stable main' | tee /etc/apt/sources.list.d/netbird.list \
     && apt-get update \
-    && apt-get install netbird=0.28.7
+    && apt-get install netbird=0.33.0
 
 
 # Build arguments
